@@ -2,8 +2,8 @@
   <section class="bg-stone-900 py-32 overflow-hidden">
     <div class="px-6 md:px-12 max-w-7xl mx-auto mb-12 flex justify-between items-end">
       <div>
-        <h2 class="text-4xl md:text-5xl font-serif text-white">Recent Masterpieces</h2>
-        <p class="text-stone-400 mt-2">Swipe to explore our latest installations.</p>
+        <h2 class="text-4xl md:text-5xl font-serif text-white italic">Recent Masterpieces</h2>
+        <p class="text-stone-400 mt-2 font-sans">Swipe to explore our latest installations.</p>
       </div>
       
       <!-- Navigation Buttons -->
@@ -28,9 +28,9 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
         
         <div class="absolute bottom-0 left-0 p-6">
-          <div class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-1">{{ work.category }}</div>
-          <h3 class="text-2xl font-serif text-white">{{ work.title }}</h3>
-          <p class="text-stone-400 text-sm mt-1">{{ work.location }}</p>
+          <div class="text-accent text-xs font-bold tracking-widest uppercase mb-1 font-sans">{{ work.category }}</div>
+          <h3 class="text-2xl font-serif text-white italic">{{ work.title }}</h3>
+          <p class="text-stone-400 text-sm mt-1 font-sans">{{ work.location }}</p>
         </div>
       </div>
     </div>

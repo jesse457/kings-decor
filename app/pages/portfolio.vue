@@ -8,13 +8,15 @@
 
     <section class="py-20 px-6 max-w-7xl mx-auto">
       <!-- Filters -->
-      <div class="flex flex-wrap justify-center gap-6 mb-16">
+      <div class="flex flex-wrap justify-center gap-6 mb-16" role="tablist" aria-label="Portfolio Category Filter">
         <button 
           v-for="cat in categories" 
           :key="cat"
           @click="activeCategory = cat"
-          class="text-xs uppercase tracking-widest px-4 py-2 border rounded-full transition-all"
-          :class="activeCategory === cat ? 'bg-stone-900 text-white border-stone-900' : 'text-stone-500 border-stone-200 hover:border-stone-900'"
+          class="text-xs uppercase tracking-widest px-4 py-2 border rounded-full transition-all duration-300 font-sans"
+          :class="activeCategory === cat ? 'bg-primary text-primary-foreground border-primary' : 'text-muted-foreground border-border hover:border-primary hover:text-primary'"
+          :aria-selected="activeCategory === cat"
+          role="tab"
         >
           {{ cat }}
         </button>
@@ -27,13 +29,17 @@
           :key="index"
           class="break-inside-avoid relative group overflow-hidden rounded-lg cursor-zoom-in"
         >
-          <img :src="item.image" class="w-full h-auto object-cover transition duration-700 group-hover:scale-110" />
+          <img 
+            :src="item.image" 
+            :alt="item.title + ' - ' + item.desc"
+            class="w-full h-auto object-cover transition duration-700 group-hover:scale-110" 
+          />
           
           <!-- Overlay -->
-          <div class="absolute inset-0 bg-stone-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-            <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">{{ item.category }}</span>
-            <h3 class="text-white font-serif text-2xl mt-1">{{ item.title }}</h3>
-            <p class="text-white/70 text-sm mt-2">{{ item.desc }}</p>
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+            <span class="text-accent text-xs font-bold uppercase tracking-widest font-sans">{{ item.category }}</span>
+            <h3 class="text-white font-serif text-2xl mt-1 italic">{{ item.title }}</h3>
+            <p class="text-white/80 text-sm mt-2 font-sans">{{ item.desc }}</p>
           </div>
         </div>
       </div>
